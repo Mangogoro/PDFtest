@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BPWebControl</name>
+    </assembly>
+    <members>
+        <member name="M:BPWebControl.BPCalendarMask.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Writes the content to be rendered on the client
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="M:BPWebControl.BPCalendarMask.CreateChildControls">
+            <summary>
+            建立元件
+            </summary>
+        </member>
+        <member name="M:BPWebControl.BPCalendarMask.BuildDateControl">
+            <summary>
+            建立日期輸入元件
+            </summary>
+        </member>
+        <member name="T:BPWebControl.BPWebDbGrid">
+            <summary>
+            BPWebDbGrid 提供一個自訂的DataGrid元件 可支援自訂分頁和排序功能。
+            </summary>
+        </member>
+        <member name="F:BPWebControl.BPWebDbGrid.components">
+            <summary>
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="F:BPWebControl.BPWebDbGrid.mbIsDesignTime">
+            <summary>
+            用在DesignTime呈現原DataFormatString,在執行階段才去變更為程式所能接受的,有點難懂,但可尋問Sun
+            </summary>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.InitializeComponent">
+            <summary>
+            此為設計工具支援所必須的方法 - 請勿使用程式碼編輯器修改
+            這個方法的內容。
+            </summary>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.OnItemCreated(System.Web.UI.WebControls.DataGridItemEventArgs)">
+            <summary>
+            覆寫DataGrid ItemCreated的事件產生自訂分頁作業物件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.InitializeItem(System.Web.UI.WebControls.DataGridItem,System.Web.UI.WebControls.DataGridColumn[])">
+            <summary>
+            覆寫，在OnItemCreated前執行，判斷那些欄位需要依特定格式呈現
+            </summary>
+            <param name="item">DataGridItem代表一列欲呈現的資料列</param>
+            <param name="columns">DataGridColumn代表欲呈現資料行的欄位集合</param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.OnItemDataBound(System.Web.UI.WebControls.DataGridItemEventArgs)">
+            <summary>
+            覆寫，在DataBind之後執行，依特定格式呈現資料
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.OnPageIndexChanged(System.Web.UI.WebControls.DataGridPageChangedEventArgs)">
+            <summary>
+            繼承DataGrid換頁事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.OnSortCommand(System.Web.UI.WebControls.DataGridSortCommandEventArgs)">
+            <summary>
+            繼承DataGrid排序事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.PageLayout(System.String)">
+            <summary>
+            作 [分頁] 或 [不分頁] 的輸出控制
+            </summary>
+            <param name="PagingOrNotPaging"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.SetBtnColor(System.Web.UI.WebControls.Button)">
+            <summary>
+            設定一般按鈕的前景與背景顏色
+            </summary>
+            <param name="btn"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.getSelectCommand(System.String)">
+            <summary>
+            取得 分頁查詢的 SQL Command ex:"select top 10 el1_EmpID as EmpID, el_JobTitle as JobTitle,el_Appellation as Appellation from employee1 as e1 inner join employee as ee on e1.el1_EmpID = ee.el_EmpID where e1.el1_EmpID>100 And el1_EmpID is not null And el1_EmpID Not In ( select top 0 el1_EmpID from employee1 as e1 inner join employee as ee on e1.el1_EmpID = ee.el_EmpID where e1.el1_EmpID>100 And el1_EmpID is not null order by e1.el1_JobTitle,el1_EmpID) order by e1.el1_JobTitle,el1_EmpID"
+            </summary>
+            <param name="sSelect"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.getCountStatement(System.String)">
+            <summary>
+            取得 計算總筆數的 SQL CommandQ
+            </summary>
+            <param name="sSqlCommand">原始查詢條件</param>
+            <returns>select Count(*) from ([sSqlCommand]) as _TotalCount</returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.getTotalRows(System.String)">
+            <summary>
+            傳回總筆數
+            </summary>
+            <param name="sSqlCommand"></param>
+            <returns>整數</returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.CustomPaging">
+            <summary>
+            自訂分頁的方法
+            </summary>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.SetPaging(DbService.DataService,System.String,System.String)">
+            <summary>
+            設定自訂分頁--元件內自行叫用
+            </summary>
+            <param name="oDataService">請代入DataService 物件</param>
+            <param name="sSqlCommand">請代入 SQL 查詢語法 ex1: SELECT 訂貨主檔.MA_訂單號碼 FROM 訂貨主檔 INNER JOIN 訂貨明細 ON 訂貨主檔.MA_訂單號碼 = 訂貨明細.SL_訂單號碼 where MA_訂單號碼 > 11000 order by 訂貨主檔.MA_訂單號碼 ex2: Select Distinct Employee.El_JobTitle From Employee where Employee.El_EmpID >=20 order by Employee.El_JobTitle DESC </param>
+            <param name="sTableName">請代入欲查詢的 表格名稱 ex1:訂貨主檔 ex2: Employee</param>
+            <returns>回傳總筆數</returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.DataGridInfoLayout">
+            <summary>
+            作DataGrid上 共[？]筆 :第[？]頁 / 共[？]頁 的輸出控制
+            </summary>
+            <returns>傳回 共[？]筆 :第[？]頁 / 共[？]頁 的字串</returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.SortDataSource">
+            <summary>
+            排序 DataSource
+            </summary>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.EDate2CDate(System.String,System.String)">
+            <summary>
+            傳入西元yyyy/M/d字串轉換民國日期型式(格式 yy.MM.dd 例:93.09.03)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.GetColumnsFormatString(System.Web.UI.WebControls.DataGridColumn)">
+            <summary>
+            取得FormatString
+            </summary>
+            <param name="ocolumn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.SetColumnsFormatString(System.Web.UI.WebControls.DataGridColumn@)">
+            <summary>
+            設定FormatString
+            </summary>
+            <param name="ocolumn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.SetPaging(System.String,System.String)">
+            <summary>
+            設定自訂分頁
+            </summary>
+            <param name="sSqlCommand">請代入 SQL 查詢語法 ex1: SELECT 訂貨主檔.MA_訂單號碼 FROM 訂貨主檔 INNER JOIN 訂貨明細 ON 訂貨主檔.MA_訂單號碼 = 訂貨明細.SL_訂單號碼 where MA_訂單號碼 > 11000 order by 訂貨主檔.MA_訂單號碼 ex2: Select Distinct Employee.El_JobTitle From Employee where Employee.El_EmpID >=20 order by Employee.El_JobTitle DESC </param>
+            <param name="sTableName">請代入欲查詢的 表格名稱 ex1:訂貨主檔 ex2: Employee</param>
+            <returns>回傳總筆數</returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.SetPaging(DbService.BaseDataSet)">
+            <summary>
+            設定自訂分頁
+            </summary>
+            <param name="oBaseDataSet">請代入BaseDataSet 物件</param>
+            <returns>回傳總筆數</returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.SetPaging(DbService.BaseDataSet,DbService.IBPDbDataParameter[])">
+            <summary>
+            設定自訂分頁
+            </summary>
+            <param name="oBaseDataSet">請代入BaseDataSet 物件</param>
+            <param name="aryParameters">查詢參數</param>
+            <returns>回傳總筆數</returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.SetPaging(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            設定自訂分頁
+            </summary>
+            <param name="sServer">請代入欲連結的伺服器名稱 ex: localhost 或 127.0.0.1 </param>
+            <param name="sDataBase">請代入欲連結的資料庫名稱 ex: myDB</param>
+            <param name="sUserName">請代入使用者ID ex:sa</param>
+            <param name="sPassword">請代入使用者密碼 ex:12345</param>
+            <param name="sSqlCommand">請代入 SQL 查詢語法 ex1: SELECT 訂貨主檔.MA_訂單號碼 FROM 訂貨主檔 INNER JOIN 訂貨明細 ON 訂貨主檔.MA_訂單號碼 = 訂貨明細.SL_訂單號碼 where MA_訂單號碼 > 11000 order by 訂貨主檔.MA_訂單號碼 ex2: Select Distinct Employee.El_JobTitle From Employee where Employee.El_EmpID >=20 order by Employee.El_JobTitle DESC</param>
+            <param name="sTableName">請代入欲查詢的 表格名稱 ex1:訂貨主檔 ex2: Employee</param>
+            <returns>回傳總筆數</returns>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.DataBind(DbService.DataService)">
+            <summary>
+            DataBind()的多載版本
+            </summary>
+            <param name="oDataService">已連線之DataService</param>
+        </member>
+        <!-- 忽略成員 "M:BPWebControl.BPWebDbGrid.DataBind" 中格式錯誤的  XML 註解 -->
+        <member name="M:BPWebControl.BPWebDbGrid.OnItemCommand(System.Web.UI.WebControls.DataGridCommandEventArgs)">
+            <summary>
+            繼承DataGrid OnItemCommand事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.btnNotPaging_Click(System.Object,System.EventArgs)">
+            <summary>
+            當按下 'Common' 或 'Change' 模式的 分不分頁 按鈕時 觸發
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.NavigateToPage(System.Object,System.EventArgs)">
+            <summary>
+            當按下 'Common' 模式 的 第一頁 上一頁 下一頁 最末頁 按鈕時 觸發
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.ddlPageIndex_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            當透過下拉式選單 選擇 'Custom' 或 'Select' 模式 的 頁次時 觸發
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.drdPageRows_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            當透過下拉式選單 選擇 'Select' 模式 的 分頁筆數時 觸發
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:BPWebControl.BPWebDbGrid.txtPageSize_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            在 'Custom' 模式 中 輸入 分頁筆數時觸發
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.PageMode">
+            <summary>
+            分頁模式 
+            Default：預設
+            Common：提供 第一頁 上一頁 下一頁 最末頁 的按鈕 
+            Change：比Common模式少了第一頁與最末頁的按鈕
+            Select：提供下拉式選單供使用者選擇頁次及分頁筆數
+            Custom：可讓使用者自行輸入分頁筆數
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.PageButtonType">
+            <summary>
+            分頁按鈕樣式
+            CommonButton：一般按鈕
+            LinkButton：連結按鈕
+            </summary>		
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.SelectMode_PagingStepRows">
+            <summary>
+            每頁筆數
+            當'PageMode'為'Select'時才有效
+            此屬性為下拉式選單中每頁筆數的間距值
+            為效能考量 請合理設定'SelectMode_PagingMaxRows'與'SelectMode_PagingStepRows'
+            </summary>		
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.SelectMode_PagingMaxRows">
+            <summary>
+            每頁最大筆數
+            當'PageMode'為'Select'時才有效
+            此屬性為下拉式選單中每頁筆數的最大值
+            為效能考量 請合理設定'SelectMode_PagingMaxRows'與'SelectMode_PagingStepRows'
+            </summary>		
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.ButtonForeColor">
+            <summary>
+            按鈕前景顏色(當ButonType為'CommonButton'時才有效)
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.ButtonBackColor">
+            <summary>
+            按鈕背景顏色(當ButonType為'CommonButton'時才有效)
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.ShowNotPagingButton">
+            <summary>
+            是否顯示不分頁按鈕
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.TotalRows">
+             <summary>
+            取得總筆數 
+             </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.PrimaryKey">
+            <summary>
+            用來作自訂分頁的欄位 
+            (請代入主鍵 , 若是 distinct 或 group by 查詢 則請代入欲做 distinct 或 group by 的欄位名稱)
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.DataSourceMode">
+            <summary>
+            資料來源方式
+            OneTime ： 
+            ForEach： 
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.SortText">
+            <summary>
+            排序欄位
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.SortType">
+            <summary>
+            排序順序 升:asc 降:desc
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.ConnectionString">
+            <summary>
+            資料庫連結字串
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.SqlSelcetCommand">
+            <summary>
+            原始查詢SQL的字串
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.TableName">
+            <summary>
+            原始查詢TableName
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.IsDataSetFirstPage">
+            <summary>
+            若為SetPaging(DataSet)的模式第一頁不執行做分頁的SQL,以原有的DataSet做顯示即可,換頁後會再執行分頁的SQL
+            </summary>
+        </member>
+        <member name="P:BPWebControl.BPWebDbGrid.LanguageType">
+            <summary>
+            是否顯示不分頁按鈕
+            </summary>
+        </member>
+        <member name="T:BPWebControl.BPWebDbGrid.PageType">
+            <summary>
+            分頁模式
+            Default：預設
+            Common：提供 第一頁 上一頁 下一頁 最末頁 的按鈕 
+            Change：比Common模式少了第一頁與最末頁的按鈕
+            Select：提供下拉式選單供使用者選擇頁次及分頁筆數
+            Custom：可讓使用者自行輸入分頁筆數
+            </summary>
+        </member>
+        <member name="T:BPWebControl.BPWebDbGrid.ButonType">
+            <summary>
+            分頁按鈕樣式
+            CommonButton：一般按鈕
+            LinkButton：連結按鈕
+            </summary>	
+        </member>
+        <member name="T:BPWebControl.BPWebDbGrid.DataSourceType">
+            <summary>
+            分頁按鈕樣式
+            CommonButton：一般按鈕
+            LinkButton：連結按鈕
+            </summary>	
+        </member>
+    </members>
+</doc>

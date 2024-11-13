@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crypt</name>
+    </assembly>
+    <members>
+        <member name="T:Crypt.KeyGenerator">
+            <summary>
+            Summary description for KeyGenerator.
+            </summary>
+        </member>
+        <member name="T:Crypt.RijndaelCrypto">
+            <summary>
+            Summary description for RijndaelCrypto.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -86,26 +86,26 @@
     </Reference>
     <Reference Include="Common">
       <Name>Common</Name>
-      <HintPath>..\Bin\ServerCOM\Common.dll</HintPath>
+      <HintPath>..\ServerCOM\Common.dll</HintPath>
     </Reference>
     <Reference Include="Crypt">
       <Name>Crypt</Name>
-      <HintPath>..\Bin\ServerCOM\Crypt.dll</HintPath>
+      <HintPath>..\ServerCOM\Crypt.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
-      <HintPath>..\Bin\ServerCOM\itextsharp.dll</HintPath>
+      <HintPath>..\ServerCOM\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.xmlworker">
-      <HintPath>..\Bin\ServerCOM\itextsharp.xmlworker.dll</HintPath>
+      <HintPath>..\ServerCOM\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Bin\ServerCOM\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\ServerCOM\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
-      <HintPath>..\Bin\ServerCOM\NLog.dll</HintPath>
+      <HintPath>..\ServerCOM\NLog.dll</HintPath>
     </Reference>
     <Reference Include="PushFacade">
-      <HintPath>..\Bin\ServerCOM\PushFacade.dll</HintPath>
+      <HintPath>..\ServerCOM\PushFacade.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
@@ -146,10 +146,10 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
     <Reference Include="zxing">
-      <HintPath>..\Bin\ServerCOM\QRCode.ZXing\zxing.dll</HintPath>
+      <HintPath>..\ServerCOM\QRCode.ZXing\zxing.dll</HintPath>
     </Reference>
     <Reference Include="zxing.presentation">
-      <HintPath>..\Bin\ServerCOM\QRCode.ZXing\zxing.presentation.dll</HintPath>
+      <HintPath>..\ServerCOM\QRCode.ZXing\zxing.presentation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

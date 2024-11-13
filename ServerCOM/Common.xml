@@ -1,0 +1,2201 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Common</name>
+    </assembly>
+    <members>
+        <member name="T:Common.AntiXsrf">
+             <summary>
+             XSRF
+                風險
+                可能發生什麼問題
+            攻擊者可以代替受害者去執行所有被授權的行為，例如從受害者的帳戶將資金轉帳給攻擊者。但Log會
+            記錄這個行為是由受害者執行。
+             </summary>
+        </member>
+        <member name="M:Common.AntiXsrf.Validate(System.Object)">
+            <summary>
+            AntiXsrfTokenKey.Validate(
+            </summary>
+        </member>
+        <member name="T:Common.BPHttpRequest">
+            <summary>
+            BPHttpRequest 的摘要描述。
+            與 MSXML之ServerXMLHTTP 元件相容
+            用於BNFK交易( with EAI)
+            </summary>
+            
+        </member>
+        <member name="F:Common.BPHttpRequest.EncodingToRemote">
+            系統傳進之string編碼
+        </member>
+        <member name="F:Common.BPHttpRequest.EncodingFromRemote">
+            以此編碼傳送
+        </member>
+        <member name="F:Common.BPHttpRequest.EncodingToAP">
+            以此編碼接收
+        </member>
+        <member name="F:Common.BPHttpRequest.ContentType">
+            回傳給AP之string編碼
+        </member>
+        <member name="P:Common.BPHttpRequest.Method">
+            <summary>
+            GET、HEAD、POST、PUT、DELETE、TRACE 或 OPTIONS
+            </summary>
+        </member>
+        <member name="P:Common.BPHttpRequest.ContentLength">
+            <summary>
+            xml內容長度
+            </summary>
+        </member>
+        <member name="P:Common.BPHttpRequest.StringRecv">
+            <summary>
+            // the Response string from HttpWebRequest
+            </summary>
+        </member>
+        <member name="P:Common.BPHttpRequest.BPRequest">
+            <summary>
+            取得Request物件
+            </summary>
+        </member>
+        <member name="P:Common.BPHttpRequest.BPResponse">
+            <summary>
+            取得Response物件
+            </summary>
+        </member>
+        <member name="M:Common.BPHttpRequest.#ctor(System.String)">
+            <summary>
+            Constructor:
+             new myxmlhttp(strimg urldest);
+            
+            </summary>
+        </member>
+        <member name="M:Common.BPHttpRequest.Send(System.String)">
+            <summary>
+            Send Request and Get Response 
+            </summary>
+        </member>
+        <member name="M:Common.BPHttpRequest.addSendLog(System.String,System.String,System.String)">
+            <summary>
+            以文字檔儲存記錄log
+            </summary>
+            <param name="sXMLTest"></param>
+            <param name="sMemo"></param>
+            <param name="sEAIIP"></param>
+        </member>
+        <member name="M:Common.BPUtility.SubStringRight(System.String,System.Int32)">
+            <summary>
+            右取字元,字串長度小於取出長度時回傳原字串
+            </summary>
+            <param name="sSource"></param>
+            <param name="iLen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.SubStringLeft(System.String,System.Int32)">
+            <summary>
+            左取字元,字串長度小於取出長度時回傳原字串
+            </summary>
+            <param name="sSource"></param>
+            <param name="iLen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.Hash_SHA1(System.String)">
+            <summary>
+            將傳入的字串以 [ SHA1 ] 的方式Hash
+            </summary>
+            <param name="strSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.Hash_MD5(System.String)">
+            <summary>
+            將傳入的字串以 [ MD5 ] 的方式Hash
+            </summary>
+            <param name="strSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.IsNumeric(System.String)">
+            <summary>
+            判斷傳入字片是否為數字
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.StrToLong(System.String)">
+            <summary>
+            自動去除字串中 [,]  字元轉成Long的型別
+            </summary>
+            <param name="argString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.GetCommaStr(System.Int32)">
+            <summary>
+            數字轉換為加逗號的數字
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.GetMoneyStr(System.Int32)">
+            <summary>
+            數字轉換為加逗號的數字
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.Date_GRE2CNS(System.DateTime,System.String)">
+            <summary>
+            傳入西元yyyy/M/d字串轉換民國日期型式(格式 yy.MM.dd 例:93.09.03 下午 01:20:01) 時間含秒數
+            </summary>
+            <param name="dtValue">西元日期</param>
+            <param name="sOutFormat">回傳日期格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.Date_CNS2GRE(System.String,System.String)">
+            <summary>
+            傳入民國日期型式(格式 yy.MM.dd 例:93.09.03)轉成西元年字串(2005/10/10)
+            </summary>
+            <param name="sDate">民國日期</param>
+            <param name="sInFormat">民國日期的格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.StrLenB(System.String)">
+            <summary>
+            依傳入字串以Byte為基本單位計算字串的長度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPUtility.StrMidB(System.String,System.Int32,System.Int32)">
+            <summary>
+            依傳入字串以Byte為基本單位的取得一字串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Common.BPDES">
+            <summary>
+            實作DES的加、解密工作
+            </summary>
+        </member>
+        <member name="M:Common.BPDES.#ctor">
+            <summary>
+            實作DES的加、解密工作建構式
+            </summary>
+        </member>
+        <member name="M:Common.BPDES.DESEncrypt(System.String,System.String)">
+            <summary>
+            資料加密處理
+            </summary>
+            <param name="sKey">private key</param>
+            <param name="sData">encrypted data</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPDES.DESDecrypt(System.String,System.String)">
+            <summary>
+            資料解密處理
+            </summary>
+            <param name="sKey">private key</param>
+            <param name="sData">decrypted data</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPDES.XOREncrypt(System.String)">
+            <summary>
+            一、先補足16位
+            二、拆成二個長度各為8的字串
+            三、利用XOR運算放入Byte[]
+            四、轉換成字串
+            </summary>
+            <param name="sPassword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPDES.HexToByte(System.String)">
+            <summary>
+            將十六位元顯示的字串轉換為byte[]陣列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPDES.GetValue(System.String)">
+            <summary>
+            中繼處理程式
+            </summary>
+            <param name="sHex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPDES.ByteToHex(System.Byte[])">
+            <summary>
+            將押密後的資料轉換成以十六位元顯示的字串
+            </summary>
+            <param name="byteValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.BPDES.GenMacKey">
+            <summary>
+            以亂數產生新的MAC Key
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.CommonBasePage.GetSess_ion(System.String)">
+            <summary>
+            取得Session
+            </summary>
+            <param name="sKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.CommonBasePage.SetSess_ion(System.String,System.Object)">
+            <summary>
+            儲存Session
+            </summary>
+            <param name="sKey"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Common.CommonBasePage.GetRe_quest(System.String)">
+            <summary>
+            取得Request
+            </summary>
+            <param name="sKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.CommonBasePage.GetView_State(System.String)">
+            <summary>
+            取得ViewState
+            </summary>
+            <param name="sKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.CommonBasePage.SetView_State(System.String,System.Object)">
+            <summary>
+            儲存ViewState
+            </summary>
+            <param name="sKey"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Common.CommonBasePage.GetCookies(System.String)">
+            <summary>
+            取得Cookies
+            </summary>
+            <param name="sKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.CommonBasePage.GetValue(System.Web.UI.HtmlControls.HtmlTextArea)">
+            <summary>
+            XSRF
+            </summary>
+            <param name="oText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.CommonBasePage.GetText(System.Web.UI.WebControls.TextBox)">
+            <summary>
+            XSRF
+            </summary>
+            <param name="oText"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Common.CommonExtension">
+            <summary>
+            字串擴充函式
+            </summary>
+        </member>
+        <member name="M:Common.clsTripleDESCrypto.TripleDESEncrypt(System.String,System.String,System.String@)">
+            <summary>
+            TripleDES 加密處理
+            </summary>
+            <param name="sKey">private key</param>
+            <param name="sData">decrypted data</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.clsTripleDESCrypto.TripleDESDecrypt(System.String,System.String,System.String@)">
+            <summary>
+            TripleDES 解密處理
+            </summary>
+            <param name="sKey">private key</param>
+            <param name="sData">decrypted data</param>
+            <returns></returns>
+        </member>
+        <member name="T:Common.ExceptionHandle">
+            <summary>
+            ExceptionHandle 的摘要描述。
+            </summary>
+        </member>
+        <member name="M:Common.ExceptionHandle.#ctor(System.Exception,System.Collections.Hashtable)">
+            <summary>
+            ExceptionHandle建構式
+            </summary>
+            <param name="exception">exception物件</param>
+            <param name="htUserData">記錄Client資料</param>
+            <param name="sVRoot">虛擬目錄</param>
+        </member>
+        <member name="M:Common.ExceptionHandle.#ctor(System.Exception,System.Collections.Hashtable,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="exception"></param>
+            <param name="htUserData"></param>
+            <param name="sStartupPath">string sStartupPath = HttpContext.Current.Request.PhysicalApplicationPath;</param>
+            <param name="sFilePath">string sFilePath = sStartupPath + "ExceptionPage\\ExceptionLog.htm";</param>
+        </member>
+        <member name="M:Common.FileUtility.GetFiles(System.String,System.String)">
+            <summary>
+            取得檔案清單
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.GetFileInfo(System.String)">
+            <summary>
+            取得檔案資料資訊
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.GetDirectories(System.String)">
+            <summary>
+            取得資料夾清單
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.FileIsExists(System.String)">
+            <summary>
+            判斷該檔案是否存在
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.DirectoryIsExists(System.String)">
+            <summary>
+            判斷該資料夾是否存在
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.GetAryDirectoryInfo(System.String)">
+            <summary>
+            取得資料夾清單
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.FileStream(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)">
+            <summary>
+            取得檔案資料流
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.FileCopy(System.String,System.String,System.Boolean)">
+            <summary>
+            複製檔案
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.GetStreamWriter(System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+            新增檔案資料流
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.OpenFileText(System.String)">
+            <summary>
+            讀取檔案內容
+            </summary>
+        </member>
+        <member name="M:Common.FileUtility.GetFileStream(System.String,System.Text.Encoding)">
+            <summary>
+            讀取檔案資料流
+            </summary>
+        </member>
+        <member name="F:Common.LogUtillity.NLogger">
+            <summary>
+            NLog 紀錄
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.ServerMachineName">
+            <summary>
+            取得機器名稱
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.ServerMachineAddress(System.String)">
+            <summary>
+            取得機器之 IP 位置
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.HTTPXFORWARDEDFOR">
+            <summary>
+            取得網頁參數 Request 之參數「HTTP_X_FORWARDED_FOR」值
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.REMOTEADD">
+            <summary>
+            取得網頁參數 Request 之參數「REMOTE_ADDR」值
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.SCRIPTNAME">
+            <summary>
+            取得網頁參數 Request 之參數「SCRIPT_NAME」值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.SystemUtility.QUERYSTRING">
+            <summary>
+            取得網頁參數 Request 之參數「QUERY_STRING」值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.SystemUtility.GetRequestQueryString(System.String)">
+            <summary>
+            取得網頁參數 Request 之參數「 」值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.SystemUtility.GetRequestMethod">
+            <summary>
+            取得網頁參數 Request 之 HttpMethod 值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Common.SystemUtility.EncodeAndDecode(System.String)">
+            <summary>
+            文字內容之 HtmlEncode 再 HtmlDecode
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.AddSSSSSSValue(System.String,System.String)">
+            <summary>
+            新增 Session 參數
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.GetSSSSSSValue(System.String)">
+            <summary>
+            取得 Session 參數設定值
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.GetConfigAppSettings(System.String)">
+            <summary>
+            取得 Config 設定值
+            </summary>
+        </member>
+        <member name="M:Common.SystemUtility.LBSQLSanitize(System.String)">
+            <summary>
+            弱點掃描SQL Injection過濾函式(土地銀行提供函式)
+            </summary>
+            <param name="sDataToClear"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.SystemUtility.LBSQLSanitize(System.String,System.String)">
+            <summary>
+            兩值是否相等 (sDataToClear == sComparison)
+            </summary>
+            <param name="sDataToClear"></param>
+            <param name="sComparison"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.UserServiceEx">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.GetSubDepartmentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.SetUserTitleCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.SetUserDepartmentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.SetUserDisplayNameCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.SetManagedByCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.GetManagedByCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.CreateComputerCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.ResetComputerCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.DeleteComputerCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.QueryComputerCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.IdInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.IdInquiryExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.AggregateInquiryExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.AddMemberExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.RemoveMemberExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.UnlockUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.CreateMailboxCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.CreateMailboxExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.DeleteMailboxExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.SetPropertiesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.IdVerifyCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.AggregateInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.AddMemberCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.RemoveMemberCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.ChangePasswordCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.ChangePasswordExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.ResetPasswordCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.ResetPasswordExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.DisableUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.DisableUserExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.EnableUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.EnableUserExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.CreateNewUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAPEx.UserServiceEx.MoveUserCompleted">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.GetSubDepartment(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginGetSubDepartment(System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndGetSubDepartment(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.GetSubDepartmentAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.GetSubDepartmentAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserTitle(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginSetUserTitle(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndSetUserTitle(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserTitleAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserTitleAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserDepartment(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginSetUserDepartment(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndSetUserDepartment(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserDepartmentAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserDepartmentAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserDisplayName(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginSetUserDisplayName(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndSetUserDisplayName(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserDisplayNameAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetUserDisplayNameAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetManagedBy(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginSetManagedBy(System.String,System.String,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndSetManagedBy(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetManagedByAsync(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetManagedByAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.GetManagedBy(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginGetManagedBy(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndGetManagedBy(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.GetManagedByAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.GetManagedByAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateComputer(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginCreateComputer(System.String,System.String,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndCreateComputer(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateComputerAsync(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateComputerAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetComputer(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginResetComputer(System.String,System.String,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndResetComputer(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetComputerAsync(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetComputerAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DeleteComputer(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginDeleteComputer(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndDeleteComputer(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DeleteComputerAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DeleteComputerAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.QueryComputer(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginQueryComputer(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndQueryComputer(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.QueryComputerAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.QueryComputerAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdInquiry(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginIdInquiry(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndIdInquiry(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdInquiryAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdInquiryAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdInquiryEx(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginIdInquiryEx(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndIdInquiryEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdInquiryExAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdInquiryExAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AggregateInquiryEx(System.String,System.String,System.String,System.String,System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginAggregateInquiryEx(System.String,System.String,System.String,System.String,System.Int32,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndAggregateInquiryEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AggregateInquiryExAsync(System.String,System.String,System.String,System.String,System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AggregateInquiryExAsync(System.String,System.String,System.String,System.String,System.Int32,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AddMemberEx(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginAddMemberEx(System.String,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndAddMemberEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AddMemberExAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AddMemberExAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.RemoveMemberEx(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginRemoveMemberEx(System.String,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndRemoveMemberEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.RemoveMemberExAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.RemoveMemberExAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.UnlockUser(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginUnlockUser(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndUnlockUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.UnlockUserAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.UnlockUserAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateMailbox(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginCreateMailbox(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndCreateMailbox(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateMailboxAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateMailboxAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateMailboxEx(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginCreateMailboxEx(System.String,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndCreateMailboxEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateMailboxExAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateMailboxExAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DeleteMailboxEx(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginDeleteMailboxEx(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndDeleteMailboxEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DeleteMailboxExAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DeleteMailboxExAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetProperties(System.String,System.String,System.String[],System.String[])">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginSetProperties(System.String,System.String,System.String[],System.String[],System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndSetProperties(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetPropertiesAsync(System.String,System.String,System.String[],System.String[])">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.SetPropertiesAsync(System.String,System.String,System.String[],System.String[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdVerify(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginIdVerify(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndIdVerify(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdVerifyAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.IdVerifyAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AggregateInquiry(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginAggregateInquiry(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndAggregateInquiry(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AggregateInquiryAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AggregateInquiryAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AddMember(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginAddMember(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndAddMember(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AddMemberAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.AddMemberAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.RemoveMember(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginRemoveMember(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndRemoveMember(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.RemoveMemberAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.RemoveMemberAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ChangePassword(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginChangePassword(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndChangePassword(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ChangePasswordAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ChangePasswordAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ChangePasswordEx(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginChangePasswordEx(System.String,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndChangePasswordEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ChangePasswordExAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ChangePasswordExAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetPassword(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginResetPassword(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndResetPassword(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetPasswordAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetPasswordAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetPasswordEx(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginResetPasswordEx(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndResetPasswordEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetPasswordExAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.ResetPasswordExAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DisableUser(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginDisableUser(System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndDisableUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DisableUserAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DisableUserAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DisableUserEx(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginDisableUserEx(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndDisableUserEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DisableUserExAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.DisableUserExAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EnableUser(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginEnableUser(System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndEnableUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EnableUserAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EnableUserAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EnableUserEx(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginEnableUserEx(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndEnableUserEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EnableUserExAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EnableUserExAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateNewUser(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginCreateNewUser(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndCreateNewUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateNewUserAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CreateNewUserAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.MoveUser(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.BeginMoveUser(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.EndMoveUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.MoveUserAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.MoveUserAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAPEx.UserServiceEx.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DepartmentsResponseDocument">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.DepartmentsResponseDocument.Departments">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.DepartmentsResponseDocument.Status">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DepartmentInfo">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.DepartmentInfo.Department">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.DepartmentInfo.SubDepartment">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.UserInfo">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfo.Id">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfo.DistinguishedName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfo.DisplayName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfo.Title">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfo.Department">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfo.MemberOf">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfo.SubDepartment">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ResponseDocument">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ResponseDocument.Status">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ResponseDocument.Users">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.Status">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.Status.StatusCode">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.Status.Severity">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.Status.Desciption">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ComputerInfoEx">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ComputerInfoEx.Id">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ComputerInfoEx.DistinguishedName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ComputerInfoEx.Description">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ComputerInfoEx.ManagedBy">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ComputerInfoEx.DirectoryProperties">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.Property">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.Property.PropertyName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.Property.SingleValue">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.Property.PropertyValues">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ComputerResponseDocument">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ComputerResponseDocument.Status">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ComputerResponseDocument.Computers">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.UserInfoEx">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfoEx.Id">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfoEx.DistinguishedName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfoEx.DirectoryProperties">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UserInfoEx.SubDepartment">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ResponseDocumentEx">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ResponseDocumentEx.Status">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ResponseDocumentEx.Users">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.GetSubDepartmentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.GetSubDepartmentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.GetSubDepartmentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetUserTitleCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetUserTitleCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.SetUserTitleCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetUserDepartmentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetUserDepartmentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.SetUserDepartmentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetUserDisplayNameCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetUserDisplayNameCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.SetUserDisplayNameCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetManagedByCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetManagedByCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.SetManagedByCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.GetManagedByCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.GetManagedByCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.GetManagedByCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.CreateComputerCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.CreateComputerCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.CreateComputerCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ResetComputerCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ResetComputerCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ResetComputerCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DeleteComputerCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DeleteComputerCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.DeleteComputerCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.QueryComputerCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.QueryComputerCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.QueryComputerCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.IdInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.IdInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.IdInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.IdInquiryExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.IdInquiryExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.IdInquiryExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.AggregateInquiryExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.AggregateInquiryExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.AggregateInquiryExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.AddMemberExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.AddMemberExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.AddMemberExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.RemoveMemberExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.RemoveMemberExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.RemoveMemberExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.UnlockUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.UnlockUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.UnlockUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.CreateMailboxCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.CreateMailboxCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.CreateMailboxCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.CreateMailboxExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.CreateMailboxExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.CreateMailboxExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DeleteMailboxExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DeleteMailboxExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.DeleteMailboxExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetPropertiesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.SetPropertiesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.SetPropertiesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.IdVerifyCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.IdVerifyCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.IdVerifyCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.AggregateInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.AggregateInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.AggregateInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.AddMemberCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.AddMemberCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.AddMemberCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.RemoveMemberCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.RemoveMemberCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.RemoveMemberCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ChangePasswordCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ChangePasswordCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ChangePasswordCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ChangePasswordExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ChangePasswordExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ChangePasswordExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ResetPasswordCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ResetPasswordCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ResetPasswordCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ResetPasswordExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.ResetPasswordExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.ResetPasswordExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DisableUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DisableUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.DisableUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DisableUserExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.DisableUserExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.DisableUserExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.EnableUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.EnableUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.EnableUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.EnableUserExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.EnableUserExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.EnableUserExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.CreateNewUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.CreateNewUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.CreateNewUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.MoveUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAPEx.MoveUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAPEx.MoveUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.UserService">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.IdInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.IdInquiryExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.AggregateInquiryExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.AddMemberExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.RemoveMemberExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.UnlockUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.CreateMailboxCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.SetPropertiesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.IdVerifyCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.AggregateInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.AddMemberCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.RemoveMemberCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.ChangePasswordCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.ChangePasswordExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.ResetPasswordCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.ResetPasswordExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.DisableUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.DisableUserExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.EnableUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.EnableUserExCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.CreateNewUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:FineBillBus.WebLDAP.UserService.MoveUserCompleted">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdInquiry(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginIdInquiry(System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndIdInquiry(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdInquiryAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdInquiryAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdInquiryEx(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginIdInquiryEx(System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndIdInquiryEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdInquiryExAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdInquiryExAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AggregateInquiryEx(System.String,System.String,System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginAggregateInquiryEx(System.String,System.String,System.Int32,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndAggregateInquiryEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AggregateInquiryExAsync(System.String,System.String,System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AggregateInquiryExAsync(System.String,System.String,System.Int32,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AddMemberEx(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginAddMemberEx(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndAddMemberEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AddMemberExAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AddMemberExAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.RemoveMemberEx(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginRemoveMemberEx(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndRemoveMemberEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.RemoveMemberExAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.RemoveMemberExAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.UnlockUser(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginUnlockUser(System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndUnlockUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.UnlockUserAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.UnlockUserAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.CreateMailbox(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginCreateMailbox(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndCreateMailbox(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.CreateMailboxAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.CreateMailboxAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.SetProperties(System.String,System.String[],System.String[])">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginSetProperties(System.String,System.String[],System.String[],System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndSetProperties(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.SetPropertiesAsync(System.String,System.String[],System.String[])">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.SetPropertiesAsync(System.String,System.String[],System.String[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdVerify(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginIdVerify(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndIdVerify(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdVerifyAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.IdVerifyAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AggregateInquiry(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginAggregateInquiry(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndAggregateInquiry(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AggregateInquiryAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AggregateInquiryAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AddMember(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginAddMember(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndAddMember(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AddMemberAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.AddMemberAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.RemoveMember(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginRemoveMember(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndRemoveMember(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.RemoveMemberAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.RemoveMemberAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ChangePassword(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginChangePassword(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndChangePassword(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ChangePasswordAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ChangePasswordAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ChangePasswordEx(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginChangePasswordEx(System.String,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndChangePasswordEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ChangePasswordExAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ChangePasswordExAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ResetPassword(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginResetPassword(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndResetPassword(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ResetPasswordAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ResetPasswordAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ResetPasswordEx(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginResetPasswordEx(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndResetPasswordEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ResetPasswordExAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.ResetPasswordExAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.DisableUser(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginDisableUser(System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndDisableUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.DisableUserAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.DisableUserAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.DisableUserEx(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginDisableUserEx(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndDisableUserEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.DisableUserExAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.DisableUserExAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EnableUser(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginEnableUser(System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndEnableUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EnableUserAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EnableUserAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EnableUserEx(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginEnableUserEx(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndEnableUserEx(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EnableUserExAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EnableUserExAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.CreateNewUser(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginCreateNewUser(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndCreateNewUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.CreateNewUserAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.CreateNewUserAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.MoveUser(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.BeginMoveUser(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.EndMoveUser(System.IAsyncResult)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.MoveUserAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.MoveUserAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:FineBillBus.WebLDAP.UserService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ResponseDocument">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.ResponseDocument.Status">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.ResponseDocument.Users">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.Status">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.Status.StatusCode">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.Status.Severity">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.Status.Desciption">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.Property">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.Property.PropertyName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.Property.SingleValue">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.Property.PropertyValues">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.UserInfoEx">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfoEx.Id">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfoEx.DistinguishedName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfoEx.DirectoryProperties">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ResponseDocumentEx">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.ResponseDocumentEx.Status">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.ResponseDocumentEx.Users">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.UserInfo">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfo.Id">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfo.DistinguishedName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfo.DisplayName">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfo.Title">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfo.Department">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UserInfo.MemberOf">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.IdInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.IdInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.IdInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.IdInquiryExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.IdInquiryExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.IdInquiryExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.AggregateInquiryExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.AggregateInquiryExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.AggregateInquiryExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.AddMemberExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.AddMemberExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.AddMemberExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.RemoveMemberExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.RemoveMemberExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.RemoveMemberExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.UnlockUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.UnlockUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.UnlockUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.CreateMailboxCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.CreateMailboxCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.CreateMailboxCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.SetPropertiesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.SetPropertiesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.SetPropertiesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.IdVerifyCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.IdVerifyCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.IdVerifyCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.AggregateInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.AggregateInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.AggregateInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.AddMemberCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.AddMemberCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.AddMemberCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.RemoveMemberCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.RemoveMemberCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.RemoveMemberCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ChangePasswordCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ChangePasswordCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.ChangePasswordCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ChangePasswordExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ChangePasswordExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.ChangePasswordExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ResetPasswordCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ResetPasswordCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.ResetPasswordCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ResetPasswordExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.ResetPasswordExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.ResetPasswordExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.DisableUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.DisableUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.DisableUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.DisableUserExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.DisableUserExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.DisableUserExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.EnableUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.EnableUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.EnableUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.EnableUserExCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.EnableUserExCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.EnableUserExCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.CreateNewUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.CreateNewUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.CreateNewUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.MoveUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:FineBillBus.WebLDAP.MoveUserCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:FineBillBus.WebLDAP.MoveUserCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+    </members>
+</doc>
