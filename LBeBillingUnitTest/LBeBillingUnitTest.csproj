@@ -15,7 +15,7 @@
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <ReferencePath>$(ProgramFiles)\Bin Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
     <SccProjectName>SAK</SccProjectName>
@@ -45,17 +45,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common, Version=1.0.0.4, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\Bin\ServerCOM\Common.dll</HintPath>
+      <HintPath>..\Bin\ServerCOM\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Crypt">
+      <HintPath>..\Bin\ServerCOM\Crypt.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
     <Reference Include="NLog, Version=2.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Bin\ServerCOM\NLog.dll</HintPath>
+      <HintPath>..\Bin\ServerCOM\NLog.dll</HintPath>
     </Reference>
     <Reference Include="NLog.Extended">
-      <HintPath>..\..\Bin\ServerCOM\NLog.Extended.dll</HintPath>
+      <HintPath>..\Bin\ServerCOM\NLog.Extended.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.13.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.13.2\lib\net45\nunit.framework.dll</HintPath>
@@ -81,7 +84,7 @@
     <Compile Include="TestUtility.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Library\FineBillBus\FineBillBus.csproj">
+    <ProjectReference Include="..\FineBillBus\FineBillBus.csproj">
       <Project>{e0465607-0c7f-43e0-a9e7-2d2b8bcfac3d}</Project>
       <Name>FineBillBus</Name>
     </ProjectReference>

@@ -21,8 +21,10 @@ namespace LBeBillingUnitTest._FineBillBus
             //產生PDF資料
             byte[] oPdfFile = oPDF.ConvertHTMLToPDF(shtmlText, "123", "");
 
-            //寫入磁碟
-            File.WriteAllBytes($@"C:\Log\{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.pdf", oPdfFile);
+			//寫入磁碟
+			string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"..\..\_output\{DateTime.Now:yyyyMMdd_HHmmss}.pdf");
+            Console.WriteLine(outputPath);
+			File.WriteAllBytes(outputPath, oPdfFile);
 
             Assert.IsTrue(true);
         }
