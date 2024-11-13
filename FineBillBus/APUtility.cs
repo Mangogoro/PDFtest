@@ -12,7 +12,7 @@ namespace FineBillBus
         /// NLog 紀錄
         /// </summary>
         private static NLog.Logger NLogger = NLog.LogManager.GetCurrentClassLogger();
-
+         
 
 
     }
