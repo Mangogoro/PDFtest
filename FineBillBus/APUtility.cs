@@ -1,22 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Data;
-using System.IO;
-using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Web;
-using System.Xml;
-using Common;
-using Crypt;
-using FineBillBus.Jobs;
-using NLog;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Security.AntiXss;
-using System.Security.Cryptography;
-using System.Globalization;
-using System.Windows.Forms;
 
 namespace FineBillBus
 {
