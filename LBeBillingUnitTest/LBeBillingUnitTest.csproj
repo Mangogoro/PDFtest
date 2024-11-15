@@ -8,7 +8,7 @@
     <ProjectGuid>{750E7276-190D-4222-8295-D348296276AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LBeBillingUnitTest</RootNamespace>
+    <RootNamespace>UnitTest</RootNamespace>
     <AssemblyName>LBeBillingUnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -79,6 +79,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="FineBillBus\TclsPDF_wkhtmltopdf.cs" />
     <Compile Include="FineBillBus\TclsPDF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUtility.cs" />
