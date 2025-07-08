@@ -20,20 +20,28 @@ namespace UnitTest
         [TestCase()]
         public void PDF測試_ConvertHTMLToPDF()
         {
-			////產生PDF資料
-			byte[] oPdfFile = ConvertHTMLToPDF(shtmlText, "123", "");
+			for (int i = 0; i < 1; i++)
+            {
+				var sFileName = $"{DateTime.Now:yyyyMMdd_HHmmss}-{i.ToString()}.pdf";
+                ////產生PDF資料
+                //byte[] oPdfFile = ConvertHTMLToPDF(shtmlText, "123", "", sFileName);
+                byte[] oPdfFile = ConvertHTMLToPDF(shtmlText, "", "", sFileName);
 
-			if (oPdfFile == null)
-			{
-				Assert.IsTrue(false);
-				return;
-			}
+                if (oPdfFile == null)
+                {
+                    Assert.IsTrue(false);
+                    return;
+                }
 
 
-			//寫入磁碟
-			string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"..\..\_output\{DateTime.Now:yyyyMMdd_HHmmss}.pdf");
-            Console.WriteLine(outputPath);
-			File.WriteAllBytes(outputPath, oPdfFile);
+                //寫入磁碟
+                string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"..\..\_output\{sFileName}");
+                Console.WriteLine(outputPath);
+                File.WriteAllBytes(outputPath, oPdfFile);
+
+
+            }
+
 
             Assert.IsTrue(true);
         }
@@ -45,7 +53,7 @@ namespace UnitTest
 		/// <param name="userPassword">使用者密碼</param>
 		/// <param name="ownerPassword">擁有者密碼</param>
 		/// <returns>PDF的位元組陣列</returns>
-		public byte[] ConvertHTMLToPDF(string htmlText, string userPassword, string ownerPassword)
+		public byte[] ConvertHTMLToPDF(string htmlText, string userPassword, string ownerPassword , string sFileName = "test.pdf")
 		{
 			try
 			{
@@ -62,7 +70,7 @@ namespace UnitTest
 					Directory.CreateDirectory(tempDirectory); // 若目錄不存在則建立
 				}
 
-				string pdfFilePath = Path.Combine(tempDirectory, $"{DateTime.Now:yyyyMMdd_HHmmss}.pdf"); // 儲存PDF檔案的路徑
+				string pdfFilePath = Path.Combine(tempDirectory, sFileName); // 儲存PDF檔案的路徑
 				string htmlFilePath = pdfFilePath.Replace(".pdf", ".html"); // 將HTML文件與PDF文件存放於相同目錄
 
 				// 將HTML內容存為檔案
@@ -76,7 +84,27 @@ namespace UnitTest
 				// 設定wkhtmltopdf執行檔的位置，通常放在bin目錄
 				string binPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\ServerCOM\wkhtmltopdf");
 				string cmd = Path.Combine(binPath, "wkhtmltopdf");
-				string options = $"--quiet --page-size {pageSize} --orientation {orientation} -B {marginBottom} -L {marginLeft} -R {marginRight} -T {marginTop}";
+
+
+                // 加密相關選項 (不能work)
+                string encryptionOptions = "";
+                if (!string.IsNullOrEmpty(userPassword))
+                {
+                    encryptionOptions += $" --password \"{userPassword}\"";
+                }
+
+                if (!string.IsNullOrEmpty(ownerPassword))
+                {
+                    encryptionOptions += $" --owner-password \"{ownerPassword}\"";
+                }
+
+                //encryptionOptions += " --no-print --no-modify --no-copy"; // 設定基本加密限制
+
+                //encryptionOptions += " --disable-print --disable-modify --disable-copy"; // 修改加密限制參數
+
+
+                // 定義完整的命令行參數
+                string options = $"--quiet --page-size {pageSize} --orientation {orientation} -B {marginBottom} -L {marginLeft} -R {marginRight} -T {marginTop} {encryptionOptions}";
 
 				// 初始化Process來執行wkhtmltopdf
 				Process process = new Process
